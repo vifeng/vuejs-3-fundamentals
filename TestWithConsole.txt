@@ -1,0 +1,6 @@
+shoppingListApp.items.push({id:4, label:'it\'s it awesome ?'})
+shoppingListApp.items.pop({id:4, label:'it\'s it awesome ?'})
+
+shoppingListApp.items
+shoppingListApp.newItem = "Cookies"
+shoppingListApp.items.push({id:4, label:shoppingListApp.newItem})
