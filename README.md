@@ -1,13 +1,8 @@
 # Vue.js 3 Fundamentals
 
-[![](https://vueschool.io/media/0b2faaa92e00e7b6d5937c127f65119f/vue-3-fundamentals-not-transparent.jpg)](https://vueschool.io/courses/vuejs-3-fundamentals)
+[[![](https://vueschool.io/media/0b2faaa92e00e7b6d5937c127f65119f/vue-3-fundamentals-not-transparent.jpg)](https://vueschool.io/courses/vuejs-3-fundamentals)](https://vueschool.io/courses/vue-js-fundamentals-with-the-composition-api)
 
-This repository contains the example code for the [Vue.js 3 Fundamentals](https://vueschool.io/courses/vuejs-3-fundamentals) course.
-
-In this course, we will teach you the fundamental concepts of Vue.js 3 and create a solid foundation for your Vue journey.
-
-### The Vue.js 3 Fundamentals course covers:
-
+### The Vue.js Fundamentals with the Composition API course covers:
 - Introduction to two-way data binding
 - Template syntax and expressions
 - Vue directives, loops and conditional rendering
@@ -17,6 +12,19 @@ In this course, we will teach you the fundamental concepts of Vue.js 3 and creat
 - Vue.js Methods and Computed Properties
 - Attribute Bindings and dynamic classes
 
-The course is suitable for developers who do not yet know about Vue.js or are just getting started with Vue.
-
-The course is free. [Enroll at Vue School!](https://vueschool.io/courses/vuejs-3-fundamentals)
+### Chapters:
+#### Chapter to do:
+- Getting Started with Vue.js and the Composition API
+- Vue Template Syntax and Expressions
+- List Rendering in Vue
+- User Inputs in Vue
+- User Events in Vue 3
+- Methods in Vue with the Composition API
+- Conditionals in Vue
+- HTML Attribute Binding in Vue
+- Dynamic CSS Classes with Vue
+- Computed Properties in Vue with the Composition API
+- Reactivity Fundamentals
+- Local Setup with Vite
+- The Vue Application Instance
+- Course Conclusion
