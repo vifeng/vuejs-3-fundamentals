@@ -8,10 +8,10 @@ chapter done
     Vue.js 3 template Syntax and Expressions
     List Rendering in Vue 3
     User Inputs in Vue 3
-Chapter to do:
     User Events in Vue 3
     Methods in Vue 3
     Conditional Rendering in Vue 3
     HTML Attribute Binding in Vue 3
     Dynamic CSS classes with Vue 3
     Computed Properties in Vue 3
+Chapter to do:
