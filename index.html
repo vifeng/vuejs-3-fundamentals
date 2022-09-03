@@ -10,8 +10,8 @@
 
       <div class="header">
         <h1>{{header.toLocaleUpperCase()}}</h1>
-        <button v-if="editing" @click="doEdit(!editing)" class="btn btn-cancel" >Cancel</button>
-        <button v-else @click= "doEdit(!editing)" class="btn btn-primary">Add Item</button>
+        <button v-if="editing" @click="doEdit(editing)" class="btn btn-cancel" >Cancel</button>
+        <button v-else @click= "doEdit(editing)" class="btn btn-primary">Add Item</button>
       </div>
 
       <div v-if="editing" class="add-item-form">
@@ -21,6 +21,7 @@
         <label>
           <input type="checkbox" v-model="newItemHighPriority">High Priority
         </label>
+        <!--  v-bind:disabled can be wirtten :disabled -->
         <button 
           v-bind:disabled="newItem.length < 5 "
           @click="saveItem" 
@@ -33,7 +34,17 @@
 
       <p v-if="items.length === 0"> Nice job baby, you have emptied the shopping-list !</p>      
       <ul>
-        <li v-for="item in items" :key="item.id">{{item.label}}</li>
+
+        <li 
+        v-for="item in items" 
+        @click="togglePurchased(item)"
+        :key="item.id"
+        :class="[
+          {strikeout: item.purchased, priority: item.priority},
+          'static-class',
+        ]"
+        >{{item.label}}</li>
+        
       </ul>
   
     </div> <!-- end shopping-list -->
@@ -50,20 +61,30 @@
             newItem: '',
             newItemHighPriority : false,
             items: [
-              // {id:1, label: "10 party hats"},
-              // {id:2, label: "2 board games"},
-              // {id:3, label: "20 cups"},
+              {id:1, label: "10 party hats", purchased: true, priority: false},
+              {id:2, label: "2 board games", purchased: false, priority: true},
+              {id:3, label: "20 cups", purchased: false, priority: false},
             ]
           }
         },
         methods:{
           saveItem(){
-            this.items.push({id:this.items.length +1, label: this.newItem})
+            this.items.push({
+              id: this.items.length +1, 
+              label: this.newItem, 
+              priority: this.newItemHighPriority
+            })
             this.newItem= ""
+            this.newItemHighPriority= ""
           },
           doEdit(editing){
             this.editing = editing
+            this.editing = !editing
             this.newItem =""
+            this.newItemHighPriority= ""
+          },
+          togglePurchased(item){
+            item.purchased= !item.purchased
           }
         }
       }).mount('#shopping-list')

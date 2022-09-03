@@ -44,6 +44,22 @@
         <li v-for="(item, key) in items" :key="item.id">{{key}} --- {{item.id}} --- {{item.label}}</li>
       </ul>
     </div>
+    <div>
+
+      <!-- how to ? Class -->
+      <ul>
+        <li v-for="item in items" :key="item.id"
+        :class="[
+          item.id < 2 ? 'test-color test-color2' : 'underlined',
+          {strikeout: item.purchased, priority: item.priority},
+          'static-class',
+        ]"
+        >{{item.label}}</li>
+      </ul>
+
+<!-- class  -->
+
+    </div>
     <script src="https://unpkg.com/vue@3"></script>
     <script>
       const shoppingListApp = Vue.createApp({
