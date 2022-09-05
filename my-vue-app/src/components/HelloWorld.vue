@@ -1,31 +1,41 @@
 
 <script setup>
-  import { ref } from 'vue'
+  import { ref, computed } from 'vue'
   
   const header = ref('Shopping List App')
   const editing = ref(false)
   const items = ref([
     {
-    id: 1, 
-    label: "carrots", 
-    purchased: true, 
-    highPriority: false},
-    {
-    id: 2, 
-    label: "cake", 
-    purchased:true, 
-    highPriority: false},
-    {
-    id: 3, 
-    label: "bunny", 
-    purchased:false, 
-    highPriority: true}
-  ])
-  const newItem = ref("")
-  const newItemHighPriority = ref(false)
+      id: 1, 
+      label: "carrots", 
+      purchased: true, 
+      highPriority: false},
+      {
+        id: 2, 
+        label: "cake", 
+        purchased:true, 
+        highPriority: false},
+        {
+          id: 3, 
+          label: "bunny", 
+          purchased:false, 
+          highPriority: true}
+        ])
+        const newItem = ref("")
+        const newItemHighPriority = ref(false)
+// COMPUTED : do not change the data, 
+// this is just for rendering. Always make a copy
+const characterCount = computed(()=>{
+  return newItem.value.length
+})
+const reversedItems = computed(()=>{
+  return [...items.value].reverse()
+})
+//other syntax
+const reversedItems2 = computed(()=>[...items.value].reverse())
 
-// methods
-
+// METHODS
+// here you can change the data
   const saveItem = ()=>{
     items.value.push(
       {
@@ -76,6 +86,9 @@
         type="text"
         placeholder="Add Item"
       >
+      <p class="counter">
+        {{characterCount}}/200
+      </p>
       <label>
         <input type="checkbox" v-model="newItemHighPriority"/>
         High Priority
@@ -90,7 +103,7 @@
     <br>
     <ul>
       <li 
-      v-for = "item in items" 
+      v-for = "(item, index) in reversedItems" 
       @click="togglePurchased(item)"
       :key = "item.id"
       class = "static-class"
