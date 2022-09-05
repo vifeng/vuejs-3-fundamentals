@@ -16,12 +16,21 @@
     const newItemPriority = ref("low")
     const IceCreamFlavors = ref([
     ])
+    const saveItem = ()=>{
+      itemsArray.push({newItem})
+      newItem
+    }
 
     </script>
     
     <template>
       <h1>{{ txt.toLocaleUpperCase() || header }}</h1>
       <h2>{{ txt ? txt : 'bouh' }}</h2>
+      <a v-bind:href="newItem">Dynamic Link</a>
+      <input 
+        type="text"
+        v-on:click="saveItem"
+      />
       <div class="memo">
       IceCreamFlavors:
       <label>

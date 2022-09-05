@@ -11,6 +11,7 @@
   ])
   const newItem = ref("")
   const newItemHighPriority = ref(false)
+
   const saveItem = ()=>{
     items.value.push({id:items.value.length +1, label: newItem.value})
     newItem.value=""
@@ -32,11 +33,14 @@
         Cancel
       </button>
       <button 
+      v-else 
       @click="doEdit(true)"
-      v-else class="btn btn-primary">
+      class="btn btn-primary">
       Add Item
       </button>
     </div>
+
+    
     <form 
       class="add-item-form"
       v-if ="editing"
@@ -52,6 +56,7 @@
         High Priority
       </label>
       <button 
+        :disabled="newItem.length < 3"
         class="btn btn-primary"
       >
         Save Item
