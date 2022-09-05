@@ -5,22 +5,47 @@
   const header = ref('Shopping List App')
   const editing = ref(false)
   const items = ref([
-    // {id: 1, label: "carrots"},
-    // {id: 2, label: "cake"},
-    // {id: 3, label: "bunny"}
+    {
+    id: 1, 
+    label: "carrots", 
+    purchased: true, 
+    highPriority: false},
+    {
+    id: 2, 
+    label: "cake", 
+    purchased:true, 
+    highPriority: false},
+    {
+    id: 3, 
+    label: "bunny", 
+    purchased:false, 
+    highPriority: true}
   ])
   const newItem = ref("")
   const newItemHighPriority = ref(false)
 
+// methods
+
   const saveItem = ()=>{
-    items.value.push({id:items.value.length +1, label: newItem.value})
-    newItem.value=""
+    items.value.push(
+      {
+        id: items.value.length + 1,
+        label: newItem.value,
+        highPriority: newItemHighPriority.value
+      })
+    newItem.value = ""
+    newItemHighPriority.value = ""
   }
   const doEdit = (e)=>{
     editing.value = e
     newItem.value = ""
+    newItemHighPriority.value = ""
   }
-  </script>
+  const togglePurchased = (item)=>{
+    item.purchased = !item.purchased
+  }
+
+</script>
   
   <template>
     <div class="header">
@@ -64,8 +89,17 @@
     </form>
     <br>
     <ul>
-      <li v-for="item in items" :key="item.id">
-        {{item.label}}
+      <li 
+      v-for = "item in items" 
+      @click="togglePurchased(item)"
+      :key = "item.id"
+      class = "static-class"
+      :class = "[
+      item.purchased ? 'text-gray, strikeout' : 'underlined',
+      item.highPriority ? 'priority':'',
+      ]"
+      >
+      {{item.label}}
       </li>
     </ul>
   </template>

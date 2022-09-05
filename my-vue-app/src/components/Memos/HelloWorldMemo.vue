@@ -3,11 +3,25 @@
     // import {msg} from 'vue'
     const header = ref('Component 2 : Memo')
     const txt = ref('')
+    // pay attention to ref([ -> []
     const itemsArray = ref([
-    {id: 1, label: "carrots"},
-    {id: 2, label: "cake"},
-    {id: 3, label: "bunny"}
+    {
+    id: 1, 
+    label: "carrots", 
+    purchased: true, 
+    highPriority: false},
+    {
+    id: 2, 
+    label: "cake", 
+    purchased:true, 
+    highPriority: false},
+    {
+    id: 3, 
+    label: "bunny", 
+    purchased:false, 
+    highPriority: true}
   ])
+  // pay attention to ref({ -> {}
     const itemsObject = ref({
       'item-1':{id: 1, label: "carrots"},
       'item-2':{id: 2, label: "cake"},
@@ -56,9 +70,23 @@
     </label>
 <br>
     {{newItemPriority}}
-      <ul>
-      <li v-for="({id, label}, index) in itemsArray" :key="id">
-        {{index}} - {{label}}</li>
+    <ul>
+      <li 
+        v-for = "item in itemsArray" 
+        :key = "item.id"
+        class = "static-class"
+        :class = "[
+        item.purchased ? 'text-gray, strikeout' : 'underlined',
+        item.highPriority ? 'priority':'',
+        'test',
+        {test2: item.purchased}
+        ],
+        [{test3: item.purchased}]"
+      >{{item.label}}</li>
+      <li 
+      v-for="({id, label}, index) in itemsArray" :key="id">
+        {{index}} - {{label}}
+      </li>
       <li v-for="({id, label}, index) in itemsObject" :key="id">
         {{index}} - {{label}}</li>
     </ul>
