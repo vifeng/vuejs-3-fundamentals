@@ -1,6 +1,7 @@
 <script setup>
 import HelloWorld from './components/HelloWorld.vue'
 import HelloWorldMemo from './components/Memos/HelloWorldMemo.vue';
+import Myreactive from './components/Myreactive.vue';
 </script>
 
 <template>
@@ -17,6 +18,8 @@ import HelloWorldMemo from './components/Memos/HelloWorldMemo.vue';
   <br>
 <hr>
   <HelloWorldMemo msg="shop app" /> 
+  <hr>
+  <Myreactive />
 </template>
 
 <style>
