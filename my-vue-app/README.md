@@ -21,7 +21,6 @@ npm run dev
 ### Chapters:
 - Getting Started with Vue.js and the Composition API
 - Vue Template Syntax and Expressions
-#### Chapter to do:
 - List Rendering in Vue
 - User Inputs in Vue
 - User Events in Vue 3
@@ -34,3 +33,5 @@ npm run dev
 - Local Setup with Vite
 - The Vue Application Instance
 - Course Conclusion
+#### Chapter to do:
+done !
